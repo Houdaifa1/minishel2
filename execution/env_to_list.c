@@ -22,10 +22,9 @@ t_env *ft_one_node(char *envp)
     }
     temp[i] = '=';
     temp[i + 1] = '\0';
-    node->var = ft_strdup(temp);
+    node->var = temp;
     node->val = grep_env_value(envp, i + 1);
     node->next = NULL;
-    free(temp);
     return(node);
 }
 t_env *ft_one_node2(char *envp)

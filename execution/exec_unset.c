@@ -28,6 +28,8 @@ void	ft_unset_env(t_env **envp, char *var)
 		{
 			remove = current->next;
 			current->next = current->next->next;
+			free(remove->val);
+			free(remove->var);
 			free(remove);
 		}
 		current = current->next;
@@ -36,6 +38,8 @@ void	ft_unset_env(t_env **envp, char *var)
 	if (current && ft_strcmp3(current->var, var) == 0)
 	{
 		*envp = current->next;
+		free(current->val);
+		free(current->var);
 		free(current);
 	}
 }
